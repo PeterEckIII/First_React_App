@@ -66,8 +66,8 @@ class App extends Component {
             return <Person
               name={person.name}
               age={person.age}
-              key={persons.id}
-              changed={(event) => this.nameChangedHandler(event, persons.id)} />
+              key={person.id}
+              changed={(event) => this.nameChangedHandler(event, person.id)} />
           })}
         </div>
       );
@@ -76,13 +76,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>First React App</h1>
         <button
           style={style}
           onClick={this.togglePersonsHandler}>Toggle Persons</button>
