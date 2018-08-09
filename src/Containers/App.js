@@ -74,10 +74,7 @@ class App extends Component {
   }
 
   render() {
-<<<<<<< HEAD
     console.log("[App.js] inside render");
-=======
->>>>>>> 2736c4bb44381a317494edaceaf15b4dae406b51
     let persons = null;
 
     if (this.state.showPersons) {

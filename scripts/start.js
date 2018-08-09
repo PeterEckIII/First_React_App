@@ -43,7 +43,6 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
 
-<<<<<<< HEAD
 if (process.env.HOST) {
   console.log(
     chalk.cyan(
@@ -61,10 +60,6 @@ if (process.env.HOST) {
 
 // We attempt to use the default port but if it is busy, we offer the user to
 // run on a different port. `choosePort()` Promise resolves to the next free port.
-=======
-// We attempt to use the default port but if it is busy, we offer the user to
-// run on a different port. `detect()` Promise resolves to the next free port.
->>>>>>> 2736c4bb44381a317494edaceaf15b4dae406b51
 choosePort(HOST, DEFAULT_PORT)
   .then(port => {
     if (port == null) {
