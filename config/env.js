@@ -27,7 +27,6 @@ var dotenvFiles = [
 
 // Load environment variables from .env* files. Suppress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables
-<<<<<<< HEAD
 // that have already been set.  Variable expansion is supported in .env files.
 // https://github.com/motdotla/dotenv
 // https://github.com/motdotla/dotenv-expand
@@ -38,15 +37,6 @@ dotenvFiles.forEach(dotenvFile => {
         path: dotenvFile,
       })
     );
-=======
-// that have already been set.
-// https://github.com/motdotla/dotenv
-dotenvFiles.forEach(dotenvFile => {
-  if (fs.existsSync(dotenvFile)) {
-    require('dotenv').config({
-      path: dotenvFile,
-    });
->>>>>>> 2736c4bb44381a317494edaceaf15b4dae406b51
   }
 });
 
