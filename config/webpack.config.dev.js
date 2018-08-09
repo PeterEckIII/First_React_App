@@ -53,6 +53,11 @@ module.exports = {
     // changing JS code would still trigger a refresh.
   ],
   output: {
+<<<<<<< HEAD
+=======
+    // Next line is not used in dev but WebpackDevServer crashes without it:
+    path: paths.appBuild,
+>>>>>>> 2736c4bb44381a317494edaceaf15b4dae406b51
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true,
     // This does not produce a real file. It's just the virtual path that is
@@ -82,7 +87,11 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
+<<<<<<< HEAD
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+=======
+    extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
+>>>>>>> 2736c4bb44381a317494edaceaf15b4dae406b51
     alias: {
       
       // Support React Native Web
@@ -108,7 +117,11 @@ module.exports = {
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
+<<<<<<< HEAD
         test: /\.(js|jsx|mjs)$/,
+=======
+        test: /\.(js|jsx)$/,
+>>>>>>> 2736c4bb44381a317494edaceaf15b4dae406b51
         enforce: 'pre',
         use: [
           {
@@ -140,7 +153,11 @@ module.exports = {
           },
           // Process JS with Babel.
           {
+<<<<<<< HEAD
             test: /\.(js|jsx|mjs)$/,
+=======
+            test: /\.(js|jsx)$/,
+>>>>>>> 2736c4bb44381a317494edaceaf15b4dae406b51
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
@@ -193,6 +210,7 @@ module.exports = {
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
           // In production, they would get copied to the `build` folder.
+<<<<<<< HEAD
           // This loader doesn't use a "test" so it will catch all modules
           // that fall through the other loaders.
           {
@@ -201,6 +219,16 @@ module.exports = {
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
             exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
+=======
+          // This loader don't uses a "test" so it will catch all modules
+          // that fall through the other loaders.
+          {
+            // Exclude `js` files to keep "css" loader working as it injects
+            // it's runtime that would otherwise processed through "file" loader.
+            // Also exclude `html` and `json` extensions so they get processed
+            // by webpacks internal loaders.
+            exclude: [/\.js$/, /\.html$/, /\.json$/],
+>>>>>>> 2736c4bb44381a317494edaceaf15b4dae406b51
             loader: require.resolve('file-loader'),
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
