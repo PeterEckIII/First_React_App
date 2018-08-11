@@ -9,6 +9,7 @@ class Person extends Component {
     constructor(props) {
         super(props);
         console.log("[Person.js] Inside Constructor", props)
+        this.inputElement = React.createRef();
     }
 
     componentWillMount() {
@@ -17,8 +18,13 @@ class Person extends Component {
 
     componentDidMount() {
         console.log("[Person.js] inside componentDidMount")
-        this.inputElement.focus();
+        this.inputElement.current.focus();
     }
+
+    focus() {
+        this.inputElement.current.focus();
+    }
+
     render() {
         console.log("[Person.js] inside render");
         return (
@@ -27,7 +33,7 @@ class Person extends Component {
                 <input
                 // Ref being used below allows us to point to a particular reference point and run code like the this.inputElement.focus() in the componentDidMount() method above
                 // focus() allows you to default the focus of the screen to a particular element
-                ref={(input) => { this.inputElement = input }} 
+                ref={this.inputElement} 
                 type="text" 
                 onChange={this.props.changed} 
                 value={this.props.name} />
