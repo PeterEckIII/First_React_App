@@ -22,7 +22,8 @@ class App extends PureComponent {
           name: "Ben", age: 21, id: 3
         }
       ],
-      showPersons: false
+      showPersons: false,
+      toggleClicked: 0
     }
   }
 
@@ -83,6 +84,7 @@ class App extends PureComponent {
   }
 
   deletePersonsHandler = (personIndex) => {
+    // Immutable because we are making a copy of persons with ...this.state.persons
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({ persons: persons });
@@ -90,7 +92,11 @@ class App extends PureComponent {
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({ showPersons: !doesShow });
+    this.setState( (prevState, props) => { 
+      return {
+        showPersons: !doesShow,
+        toggleClicked: prevState.toggleClicked + 1
+    }});
   }
 
   render() {
