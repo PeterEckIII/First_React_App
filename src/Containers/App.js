@@ -4,7 +4,7 @@ import Persons from "../Components/Persons/Persons";
 import Cockpit from "../Components/Cockpit/Cockpit";
 
 class App extends PureComponent {
-  // Only use Purecomponent when 
+  
   constructor(props) {
     super(props);
     console.log("[App.js] Inside Constructor", props)
