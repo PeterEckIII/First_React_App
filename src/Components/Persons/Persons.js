@@ -13,7 +13,10 @@ class Persons extends PureComponent {
     }
 
     componentDidMount() {
-        console.log("[Persons.js] inside componentDidMount")
+        console.log("[Persons.js] inside componentDidMount");
+        if (this.props.position === 0) {
+            this.inputElement.focus();
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -44,6 +47,8 @@ class Persons extends PureComponent {
             return <Person
                 click={() => this.props.clicked(index)}
                 name={person.name}
+                // Ref is being used with position below
+                position={index}
                 age={person.age}
                 key={person.id}
                 changed={(event) => this.props.changed(event, person.id)} />
