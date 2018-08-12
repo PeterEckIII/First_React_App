@@ -3,7 +3,7 @@ import classes from './Person.css';
 import withClass from "../../../HOC/withClass";
 import Aux from "../../../HOC/Aux";
 import PropTypes from "prop-types";
-
+import { AuthContext } from "../../../Containers/App";
 
 class Person extends Component {
     constructor(props) {
@@ -18,7 +18,6 @@ class Person extends Component {
 
     componentDidMount() {
         console.log("[Person.js] inside componentDidMount")
-        this.inputElement.current.focus();
     }
 
     focus() {
@@ -29,6 +28,9 @@ class Person extends Component {
         console.log("[Person.js] inside render");
         return (
             <Aux>
+                <AuthContext.Consumer>
+                    {auth => auth ? <p>I'm authenticated</p> : null}
+                </AuthContext.Consumer>
                 <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old</p>
                 <input
                 // Ref being used below allows us to point to a particular reference point and run code like the this.inputElement.focus() in the componentDidMount() method above
