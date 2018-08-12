@@ -51,9 +51,24 @@ class App extends PureComponent {
     console.log("[UPDATE: App.js] inside componentWillUpdate", nextProps, nextState);
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    // Run this when updating props. It allows you to update your state along with the updated props
+    // State should RARELY be coupled with props, so this should be used sparingly
+    console.log("[UPDATE App.js] Inside getDerivedStateFromProps", nextProps, prevState);
+
+    return prevState;
+  }
+
+  getSnapshotBeforeUpdate() {
+    // Gets a snapshot right before the component updates
+    console.log("[UPDATE App.js] Inside getSnapshotBeforeUpdate");
+
+  }
+
   componentDidUpdate() {
     console.log("[UPDATE: App.js] inside componentDidUpdate");
   }
+
   state = {
     persons: [
       {
