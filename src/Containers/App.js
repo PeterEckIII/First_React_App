@@ -62,6 +62,7 @@ class App extends PureComponent {
   getSnapshotBeforeUpdate() {
     // Gets a snapshot right before the component updates
     console.log("[UPDATE App.js] Inside getSnapshotBeforeUpdate");
+    // 
 
   }
 
